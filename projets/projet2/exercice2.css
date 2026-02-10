@@ -1,0 +1,35 @@
+/* Appliquer une couleur de fond à la section avec classe "container" */
+.container {
+    background-color: aqua;
+}
+
+/* Ajouter une bordure et un fond blanc aux elements de classe "box" */
+.box {
+    border: 1px solid;
+    background-color: white;
+}
+
+/* Changer la couleur du texte des elements de classe "box-highlight" */
+.box-highlight {
+    color: blue;
+
+}
+
+body {
+    background-color: rgb(59, 59, 56);
+}
+
+/* Changer la couleur du texte des elements de classe "list-item" */
+.list_item {
+    color: green;
+}
+
+/* Ajouter une marge de 10px aux elements de type div */
+div {
+    margin: 10px;
+}
+
+/*Exception pour les paragraphes à l'intérieur du container */
+.container p {
+    color: red;
+}

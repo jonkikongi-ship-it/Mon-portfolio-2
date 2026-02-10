@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 4 - Horloge en temps réel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .clock {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        .input-clock {
+            width: 200px;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            margin: 20px auto;
+            display: block;
+            font-family: 'Courier New', monospace;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .info {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Horloge en temps réel</h1>
+        
+        <div class="clock" id="clockDisplay">--:--:--</div>
+        
+        <input type="text" id="clockInput" class="input-clock" readonly>
+        
+        <div class="info">
+            <h3>Information :</h3>
+            <p>Cette horloge s'actualise automatiquement toutes les secondes.</p>
+            <p>Format utilisé : HH:MM:SS (24 heures)</p>
+            <p>Technologie : JavaScript avec setTimeout()</p>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            
+            // Obtenir les composants de l'heure
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            
+            // Formater avec deux chiffres
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            
+            // Créer la chaîne au format HH:MM:SS
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // Mettre à jour les deux affichages
+            document.getElementById('clockDisplay').textContent = timeString;
+            document.getElementById('clockInput').value = timeString;
+            
+            // Programmer la prochaine mise à jour
+            setTimeout(updateClock, 1000);
+        }
+        
+        // Démarrer l'horloge
+        updateClock();
+    </script>
+</body>
+</html>

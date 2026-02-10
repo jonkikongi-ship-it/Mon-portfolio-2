@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Interactive - Jonathan</title>
+    <link rel="stylesheet" href="../../projet-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .demo-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="projet-header">
+        <nav class="projet-nav">
+            <a href="#" class="projet-logo">App<span>JS</span></a>
+            <a href="../../index.html" class="btn-retour">
+                <i class="fas fa-arrow-left"></i> Retour au portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="projet-main">
+        <section class="projet-hero">
+            <h1>Introduction au langage JavaScript</h1>
+            <p>Une application web dynamique avec HTML, CSS et JavaScript pour une expérience utilisateur immersive.</p>
+            
+            <div class="tech-badges">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">API Fetch</span>
+                <span class="badge">Local Storage</span>
+                <span class="badge">Events</span>
+            </div>
+        </section>
+
+        <section class="projet-info">
+            <h2>Fonctionnalités principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Données Dynamiques</h3>
+                    <p>Chargement et mise à jour en temps réel des données</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Contrôles Interactifs</h3>
+                    <p>Interface utilisateur riche avec contrôles intuitifs</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Sauvegarde Locale</h3>
+                    <p>Persistance des données avec Local Storage</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Notifications</h3>
+                    <p>Système de notifications en temps réel</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="demo-section">
+            <h2>Démonstration Interactive</h2>
+            <p>Testez quelques fonctionnalités de l'application :</p>
+            
+            <div id="demo-counter" style="text-align: center; margin: 2rem 0; font-size: 2rem; color: var(--primary);">
+                Compteur: <span id="count">0</span>
+            </div>
+            
+            <div class="demo-controls">
+                <button class="demo-btn" id="increment-btn">
+                    <i class="fas fa-plus"></i> Incrémenter
+                </button>
+                <button class="demo-btn" id="decrement-btn">
+                    <i class="fas fa-minus"></i> Décrémenter
+                </button>
+                <button class="demo-btn" id="reset-btn">
+                    <i class="fas fa-redo"></i> Réinitialiser
+                </button>
+                <button class="demo-btn" id="theme-btn">
+                    <i class="fas fa-moon"></i> Thème Sombre
+                </button>
+            </div>
+        </div>
+
+        <section class="pages-section">
+            <h2>Accès aux pages</h2>
+            <div class="pages-grid">
+                <a href="page1.html" class="page-card">
+                    <i class="fas fa-rocket"></i>
+                    <span>Page 1</span>
+                    <div class="page-number">Structures conditionnelles</div>
+                </a>
+                
+                <a href="page2.html" class="page-card">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Page 2</span>
+                    <div class="page-number">Algorithmes avancés</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="projet-footer">
+        <div class="footer-content">
+            <p>Application Interactive - <strong>Jonathan KIKONGI DIMWINSA</strong></p>
+            <p>Formation Développement Web D-CLIC</p>
+            <a href="#" class="back-to-top">
+                <i class="fas fa-chevron-up"></i> Retour en haut
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Démo interactive
+        let count = 0;
+        const countElement = document.getElementById('count');
+        
+        document.getElementById('increment-btn').addEventListener('click', function() {
+            count++;
+            countElement.textContent = count;
+            showNotification('Compteur incrémenté !');
+        });
+        
+        document.getElementById('decrement-btn').addEventListener('click', function() {
+            if (count > 0) {
+                count--;
+                countElement.textContent = count;
+                showNotification('Compteur décrémenté !');
+            }
+        });
+        
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            count = 0;
+            countElement.textContent = count;
+            showNotification('Compteur réinitialisé !', 'info');
+        });
+        
+        document.getElementById('theme-btn').addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            const icon = this.querySelector('i');
+            const text = this.querySelector('span') || this;
+            
+            if (document.body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-sun';
+                this.innerHTML = '<i class="fas fa-sun"></i> Thème Clair';
+                document.body.style.backgroundColor = '#1a2530';
+                document.body.style.color = '#f5f7fa';
+                showNotification('Thème sombre activé !');
+            } else {
+                icon.className = 'fas fa-moon';
+                this.innerHTML = '<i class="fas fa-moon"></i> Thème Sombre';
+                document.body.style.backgroundColor = '';
+                document.body.style.color = '';
+                showNotification('Thème clair activé !');
+            }
+        });
+        
+        function showNotification(message, type = 'success') {
+            // Créer une notification
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#2ecc71' : '#3498db'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+        
+        // Style pour les animations de notification
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Retour en haut
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 3 - Algorithmes JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .exercice {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #9C27B0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #7b1fa2;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #9C27B0;
+            white-space: pre-line;
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 200px;
+        }
+        .triangle {
+            font-family: monospace;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercice 3 - Algorithmes avancés</h1>
+    
+    <div class="exercice">
+        <h2>1. Nombres premiers entre 1 et 100</h2>
+        <button onclick="displayPrimeNumbers()">Afficher les nombres premiers</button>
+        <div id="primeResult" class="result"></div>
+    </div>
+    
+    <div class="exercice">
+        <h2>2. Facteurs d'un nombre</h2>
+        <input type="number" id="factorInput" placeholder="Entrez un nombre" min="1">
+        <button onclick="findFactors()">Trouver les facteurs</button>
+        <div id="factorResult" class="result"></div>
+    </div>
+    
+    <div class="exercice">
+        <h2>3. Moyenne des nombres positifs</h2>
+        <button onclick="calculateAverage()">Calculer la moyenne</button>
+        <div id="averageResult" class="result"></div>
+    </div>
+    
+    <div class="exercice">
+        <h2>4. Motif triangulaire avec des étoiles</h2>
+        <input type="number" id="triangleInput" placeholder="Hauteur du triangle" min="1" max="20" value="5">
+        <button onclick="displayTriangle()">Afficher le triangle</button>
+        <div id="triangleResult" class="result triangle"></div>
+    </div>
+    
+    <script>
+        // Exercice 3.1 - Nombres premiers entre 1 et 100
+        function displayPrimeNumbers() {
+            let primes = [];
+            
+            for (let num = 2; num <= 100; num++) {
+                let isPrime = true;
+                
+                // Vérifier si num est premier
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                
+                if (isPrime) {
+                    primes.push(num);
+                }
+            }
+            
+            let result = "Nombres premiers entre 1 et 100 :\n\n";
+            for (let i = 0; i < primes.length; i++) {
+                result += primes[i] + " ";
+                if ((i + 1) % 10 === 0) result += "\n";
+            }
+            
+            result += `\n\nTotal: ${primes.length} nombres premiers`;
+            document.getElementById('primeResult').innerHTML = result;
+        }
+        
+        // Exercice 3.2 - Facteurs d'un nombre
+        function findFactors() {
+            const number = parseInt(document.getElementById('factorInput').value);
+            
+            if (isNaN(number) || number < 1) {
+                document.getElementById('factorResult').innerHTML = 
+                    "<strong>Erreur :</strong> Veuillez entrer un nombre positif.";
+                return;
+            }
+            
+            let factors = [];
+            
+            for (let i = 1; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    factors.push(i);
+                    // Ajouter le facteur complémentaire (sauf pour les carrés parfaits)
+                    if (i !== number / i) {
+                        factors.push(number / i);
+                    }
+                }
+            }
+            
+            // Trier les facteurs dans l'ordre croissant
+            factors.sort((a, b) => a - b);
+            
+            let result = `Facteurs de ${number} :\n\n`;
+            for (let i = 0; i < factors.length; i++) {
+                result += factors[i] + " ";
+                if ((i + 1) % 10 === 0) result += "\n";
+            }
+            
+            result += `\n\nTotal: ${factors.length} facteurs`;
+            document.getElementById('factorResult').innerHTML = result;
+        }
+        
+        // Exercice 3.3 - Moyenne des nombres positifs
+        function calculateAverage() {
+            let numbers = [];
+            let input;
+            
+            alert("Entrez des nombres positifs. Entrez un nombre négatif pour arrêter.");
+            
+            do {
+                input = parseFloat(prompt("Entrez un nombre positif :"));
+                
+                if (!isNaN(input) && input >= 0) {
+                    numbers.push(input);
+                }
+                
+            } while (!isNaN(input) && input >= 0);
+            
+            if (numbers.length === 0) {
+                document.getElementById('averageResult').innerHTML = 
+                    "Aucun nombre positif n'a été saisi.";
+                return;
+            }
+            
+            // Calculer la somme
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+            
+            // Calculer la moyenne
+            let average = sum / numbers.length;
+            
+            let result = `Nombres saisis : ${numbers.join(", ")}\n\n`;
+            result += `Nombre de valeurs : ${numbers.length}\n`;
+            result += `Somme : ${sum}\n`;
+            result += `Moyenne : ${average.toFixed(2)}`;
+            
+            document.getElementById('averageResult').innerHTML = result;
+        }
+        
+        // Exercice 3.4 - Motif triangulaire
+        function displayTriangle() {
+            const height = parseInt(document.getElementById('triangleInput').value);
+            
+            if (isNaN(height) || height < 1 || height > 20) {
+                document.getElementById('triangleResult').innerHTML = 
+                    "<strong>Erreur :</strong> Veuillez entrer une hauteur entre 1 et 20.";
+                return;
+            }
+            
+            let triangle = "";
+            
+            for (let i = 1; i <= height; i++) {
+                // Ajouter des espaces pour centrer le triangle
+                for (let j = 1; j <= height - i; j++) {
+                    triangle += " ";
+                }
+                
+                // Ajouter des étoiles
+                for (let k = 1; k <= (2 * i - 1); k++) {
+                    triangle += "*";
+                }
+                
+                triangle += "\n";
+            }
+            
+            document.getElementById('triangleResult').innerHTML = triangle;
+        }
+    </script>
+</body>
+</html>

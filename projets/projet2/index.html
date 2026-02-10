@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site CSS Avancé - Jonathan</title>
+    <link rel="stylesheet" href="../../projet-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="projet-header">
+        <nav class="projet-nav">
+            <a href="#" class="projet-logo">CSS<span>Master</span></a>
+            <a href="../../index.html" class="btn-retour">
+                <i class="fas fa-arrow-left"></i> Retour au portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="projet-main">
+        <section class="projet-hero">
+            <h1>Site Web avec CSS Avancé</h1>
+            <p>Démonstration de maîtrises des techniques CSS modernes : Grid, Flexbox, animations et design responsive.</p>
+            
+            <div class="tech-badges">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">Flexbox</span>
+                <span class="badge">CSS Grid</span>
+                <span class="badge">Animations</span>
+                <span class="badge">Responsive</span>
+            </div>
+        </section>
+
+        <section class="projet-info">
+            <h2>Détails du projet</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🎨 Design</h3>
+                    <p>Design moderne avec une palette de couleurs harmonieuse, typographie soignée et espacement professionnel.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📱 Responsive</h3>
+                    <ul>
+                        <li>Mobile First</li>
+                        <li>Breakpoints optimisés</li>
+                        <li>Images adaptatives</li>
+                        <li>Navigation mobile</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>✨ Animations</h3>
+                    <ul>
+                        <li>Transitions fluides</li>
+                        <li>Keyframes personnalisées</li>
+                        <li>Effets de hover</li>
+                        <li>Chargement progressif</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📐 Layout</h3>
+                    <ul>
+                        <li>Grid Layout complexe</li>
+                        <li>Flexbox avancé</li>
+                        <li>Positionnement précis</li>
+                        <li>Overflow contrôlé</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="pages-section">
+            <h2>Accès aux pages</h2>
+            <div class="pages-grid">
+                <a href="page1.html" class="page-card">
+                    <i class="fas fa-home"></i>
+                    <span>Page 1</span>
+                    <div class="page-number">Bienvenu sur mon site</div>
+                </a>
+                
+                <a href="page2.html" class="page-card">
+                    <i class="fas fa-magic"></i>
+                    <span>Page 2</span>
+                    <div class="page-number">Boucles</div>
+                </a>
+                
+                <a href="page3.html" class="page-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Page 3</span>
+                    <div class="page-number">Sélecteurs CSS avancées</div>
+                </a>
+            </div>
+        </section>
+
+        <div class="css-showcase">
+            <h2>Techniques CSS utilisées</h2>
+            <div class="css-grid">
+                <div class="css-item">
+                    <h3><i class="fas fa-th-large"></i> Grid Layout</h3>
+                    <p>Layouts complexes avec grid-template-areas</p>
+                </div>
+                <div class="css-item">
+                    <h3><i class="fas fa-expand-alt"></i> Flexbox</h3>
+                    <p>Alignement et distribution flexibles</p>
+                </div>
+                <div class="css-item">
+                    <h3><i class="fas fa-palette"></i> Variables CSS</h3>
+                    <p>Couleurs et valeurs réutilisables</p>
+                </div>
+                <div class="css-item">
+                    <h3><i class="fas fa-running"></i> Animations</h3>
+                    <p>@keyframes et transitions</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="projet-footer">
+        <div class="footer-content">
+            <p>Projet CSS Avancé - <strong>Jonathan KIKONGI DIMWINSA</strong></p>
+            <p>D-CLIC Formation Développement Web</p>
+            <a href="#" class="back-to-top">
+                <i class="fas fa-chevron-up"></i> Retour en haut
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Animation pour les cartes CSS
+        document.querySelectorAll('.css-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

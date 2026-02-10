@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 3 - Manipulation de dates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #28a745;
+        }
+        .current-date {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercice 3 : Manipulation de dates</h1>
+        
+        <div class="current-date">
+            <p>Date actuelle : <span id="currentDate"></span></p>
+        </div>
+        
+        <form id="dateForm">
+            <label for="dateInput">Entrez une date (format JJ-MM-AAAA) :</label>
+            <input type="text" id="dateInput" placeholder="Ex: 15-01-2024" pattern="\d{2}-\d{2}-\d{4}">
+            <small>Format requis : JJ-MM-AAAA (ex: 15-01-2024)</small>
+            
+            <button type="button" onclick="processDate()">Analyser la date</button>
+        </form>
+        
+        <div class="result">
+            <h3>Résultats :</h3>
+            <p id="dayResult">Jour : </p>
+            <p id="monthResult">Mois : </p>
+            <p id="yearResult">Année : </p>
+            <p id="differenceResult">Différence avec aujourd'hui : </p>
+        </div>
+    </div>
+
+    <script>
+        // Afficher la date actuelle
+        const now = new Date();
+        document.getElementById('currentDate').textContent = now.toLocaleDateString('fr-FR');
+        
+        function processDate() {
+            const dateInput = document.getElementById('dateInput').value;
+            
+            if (!dateInput) {
+                alert("Veuillez entrer une date");
+                return;
+            }
+            
+            // Validation du format
+            const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
+            const match = dateInput.match(datePattern);
+            
+            if (!match) {
+                alert("Format invalide. Utilisez JJ-MM-AAAA");
+                return;
+            }
+            
+            // Extraction des composants de la date
+            const day = parseInt(match[1]);
+            const month = parseInt(match[2]) - 1; // Les mois commencent à 0 en JavaScript
+            const year = parseInt(match[3]);
+            
+            // Création de l'objet Date
+            const enteredDate = new Date(year, month, day);
+            
+            // Vérification si la date est valide
+            if (enteredDate.getDate() !== day || enteredDate.getMonth() !== month || enteredDate.getFullYear() !== year) {
+                alert("Date invalide. Veuillez vérifier les valeurs.");
+                return;
+            }
+            
+            // Affichage des composants
+            document.getElementById('dayResult').textContent = `Jour : ${day}`;
+            document.getElementById('monthResult').textContent = `Mois : ${month + 1}`;
+            document.getElementById('yearResult').textContent = `Année : ${year}`;
+            
+            // Calcul de la différence en jours
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Réinitialiser l'heure pour comparer seulement les dates
+            enteredDate.setHours(0, 0, 0, 0);
+            
+            const timeDifference = enteredDate.getTime() - today.getTime();
+            const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            
+            let differenceText;
+            if (dayDifference === 0) {
+                differenceText = "C'est aujourd'hui !";
+            } else if (dayDifference > 0) {
+                differenceText = `Dans ${dayDifference} jour(s) (date future)`;
+            } else {
+                differenceText = `Il y a ${Math.abs(dayDifference)} jour(s) (date passée)`;
+            }
+            
+            document.getElementById('differenceResult').textContent = 
+                `Différence avec aujourd'hui : ${differenceText}`;
+        }
+        
+        // Permettre d'utiliser la touche Entrée
+        document.getElementById('dateInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                processDate();
+            }
+        });
+    </script>
+</body>
+</html>
+s

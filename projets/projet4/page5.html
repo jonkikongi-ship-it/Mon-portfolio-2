@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 5 - Manipulation de tableaux</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button, select {
+            padding: 10px;
+            margin: 10px 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .operations {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .array-display {
+            font-family: 'Courier New', monospace;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        h2 {
+            color: #333;
+        }
+        .original-array {
+            background-color: #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercice 5 : Manipulation de tableaux</h1>
+        
+        <div class="section">
+            <h2>Tableau initial :</h2>
+            <div class="array-display original-array" id="originalArray"></div>
+            
+            <div class="operations">
+                <h3>Manipulation du tableau :</h3>
+                
+                <div>
+                    <label>Ajouter un nombre :</label>
+                    <input type="number" id="newNumber" placeholder="Ex: 42">
+                    <button onclick="addNumber()">Ajouter à la fin</button>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <label>Supprimer un élément :</label>
+                    <select id="elementToRemove"></select>
+                    <button onclick="removeElement()">Supprimer l'élément</button>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <button onclick="sortArray()">Trier le tableau (croissant)</button>
+                    <button onclick="resetArray()">Réinitialiser le tableau</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Tableau actuel :</h2>
+            <div class="array-display" id="currentArray"></div>
+            <p id="arrayInfo">Longueur : 0</p>
+        </div>
+    </div>
+
+    <script>
+        // Tableau initial
+        let numbers = [15, 3, 42, 8, 27, 11, 6];
+        const originalNumbers = [...numbers];
+        
+        // Afficher le tableau initial
+        function displayArrays() {
+            document.getElementById('originalArray').textContent = 
+                `[${originalNumbers.join(', ')}]`;
+            document.getElementById('currentArray').textContent = 
+                `[${numbers.join(', ')}]`;
+            document.getElementById('arrayInfo').textContent = 
+                `Longueur : ${numbers.length} élément(s)`;
+            
+            // Mettre à jour la liste déroulante pour la suppression
+            const selectElement = document.getElementById('elementToRemove');
+            selectElement.innerHTML = '';
+            
+            numbers.forEach((num, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${num} (index ${index})`;
+                selectElement.appendChild(option);
+            });
+        }
+        
+        // Fonction pour ajouter un nombre à la fin
+        function addNumber() {
+            const input = document.getElementById('newNumber');
+            const newNumber = parseFloat(input.value);
+            
+            if (!isNaN(newNumber)) {
+                numbers.push(newNumber);
+                displayArrays();
+                input.value = '';
+            } else {
+                alert("Veuillez entrer un nombre valide");
+            }
+        }
+        
+        // Fonction pour supprimer un élément spécifique
+        function removeElement() {
+            const selectElement = document.getElementById('elementToRemove');
+            const indexToRemove = parseInt(selectElement.value);
+            
+            if (!isNaN(indexToRemove) && indexToRemove >= 0 && indexToRemove < numbers.length) {
+                // Supprimer l'élément à l'index spécifié
+                numbers.splice(indexToRemove, 1);
+                displayArrays();
+            }
+        }
+        
+        // Fonction pour trier le tableau
+        function sortArray() {
+            numbers.sort((a, b) => a - b);
+            displayArrays();
+        }
+        
+        // Fonction pour réinitialiser le tableau
+        function resetArray() {
+            numbers = [...originalNumbers];
+            displayArrays();
+        }
+        
+        // Initialisation
+        displayArrays();
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="page de synthèse HTML pour exercice de developpement web">
+    <meta name="keywords" content="HTML, développement web, débutant, exercice">
+    <meta name="author" content="Jonathan Kikongi"> 
+    <title>Exercice de synthèse - Développement web</title>
+</head>
+<body>
+   <!-- En tête principal -->
+    <h1>Exercice de synthèse - Développement web Niveau Débutant</h1>
+
+    <!-- Paragraphe descriptif -->
+     <p>Cette page web a été créee dans le cadre d'un exercice de synthèse pour pratiquer les balises HTML fondamentales. Vous y trouverez divers éléments HTML que nous avons appris dans le cours.</p>
+
+     <!--Liste non ordonnée-->
+     <h2>Elements HTML pratiqués :</h2>
+     <ul>
+        <li>Balises de structure (html, head, body)</li>
+        <li>Balises d'en-tête (h1, h2, etc.)</li>
+        <li>Paragraphes avec la balise &lt;p&gt;</li> :
+        <li>Listes ordonnées et non ordonnées </li>
+        <li>images avec textes alternatif</li>
+        <li>liens hypertextes</li>
+        <li>Tableaux avec fusion des cellules</li>
+
+     </ul>
+     <!-- Image avec lien vers une deuxième page-->
+      <h2>Exemple d'image avec lien</h2>
+      <p>Cliquez sur l'image ci-dessous pour accéder à une deuxième page contenant la même image :</p>
+      <a href="deuxième_page.html">
+        <img src="./Image/photo.jpg" alt="Ceci est une image" width="300" height="200">
+
+      </a>
+
+      <!-- Tableau vec fusion de cellules-->
+       <h2>Tableau de démonstration :</h2>
+       <table border="1">
+        <!--Première ligne (en-tête)-->
+        <tr>
+            <th>Produit</th>
+            <th>Catégorie</th>
+            <th>Prix</th>
+            <th>Stock</th>
+        </tr>
+
+        <!--Deuxième ligne avec fusion colonnes 2 et 3-->
+        <tr>
+            <td>Ordinateur Portable</td>
+            <td colspan="2">Electronique - 800$</td>
+            <td>15</td>
+        </tr>
+
+        <!-- Troisième ligne-->
+         <tr>
+            <td>Livre HTML</td>
+            <td>Livre</td>
+            <td>30$</td>
+            <td>40</td>
+         </tr>
+
+         <!-- Quatrième et cinquième lignes avec fusion-->
+          <tr>
+            <td rowspan="2">Articles fusionnés</td>
+            <td>Souris</td>
+            <td>25$</td>
+            <td>38</td>
+          </tr>
+          <tr>
+            <td>Clavier</td>
+            <td>45$</td>
+            <td>22</td>
+          </tr>
+
+          <!--Sixième ligne (5 lignes total demandées)-->
+          <tr>
+            <td>Ecran 24"</td>
+            <td>Péripherique</td>
+            <td>180$</td>
+            <td>10</td>
+          </tr>
+
+       </table>
+
+       
+        
+
+    
+
+
+</body>
+</html>

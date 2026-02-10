@@ -1,0 +1,26 @@
+/* Coleur de fond du body */
+body {
+    background-color: brown;
+}
+
+/* Class hihlight - texte bleu + gras */
+.highlight {
+    color: blue;
+    font-weight: bold;
+}
+
+/* Sélecteur de type - couleur des éléments de liste */
+li {
+    color: navy;
+}
+
+/* Ajouter une bordure et un fond gris aux elements avec class "spécial" */
+.special {
+    border: 2px solid;
+    background-color: grey;
+}
+
+/* style pour le premier element de la liste avec selecteur d'ID */
+#first-fruit {
+    background-color: yellow;
+}

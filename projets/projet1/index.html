@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Jeu JavaScript - Jonathan</title>
+    <link rel="stylesheet" href="../../projet-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="projet-header">
+        <nav class="projet-nav">
+            <a href="#" class="projet-logo"> Projet<span>HTML</span></a>
+            <a href="../../index.html" class="btn-retour">
+                <i class="fas fa-arrow-left"></i> Retour au portfolio
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="projet-main">
+        <!-- Hero Section -->
+        <section class="projet-hero">
+            <h1>Introduction au langage de balisage HTML</h1>
+            <p>Projet sur le langage de balisage HTML5, utilisant les balises et attributs, les liens hypertexte, les images et les tableaux.</p>
+            
+            <div class="tech-badges">
+                <span class="badge">HTML</span>
+                <span class="badge">Balise et attributs</span>
+                <span class="badge">Liens hypertexte</span>
+                <span class="badge">Images</span>
+                <span class="badge">Tableaux</span>
+            </div>
+        </section>
+
+        <!-- Project Info -->
+        <section class="projet-info">
+            <h2>À propos de ce projet</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📋 Description</h3>
+                    <p>Introduction au langage de balisage HTML5</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🎯 Objectifs</h3>
+                    <ul>
+                        <li>Appréhender le concept de balisage et son lien avec HTML.</li>
+                        <li>Ientifier et appliquer aisément les principales balises et attributs d'HTML.</li>
+                        <li>Comprendre et mettre en oeuvre les liens hypertexte.</li>
+                        <li>Insérer les images de manière adequate dans le contenu.</li>
+                        <li>Intégrer aisément des tableaux dans les pages de contenu.</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>⚙️ Technologies</h3>
+                    <ul>
+                        <li>HTML5 - Structure</li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📊 Statistiques</h3>
+                    <ul>
+                        <li>6 pages HTML</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pages Navigation -->
+        <section class="pages-section">
+            <h2>Accéder aux pages</h2>
+            <div class="pages-grid">
+                <a href="page1.html" class="page-card">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Page 1</span>
+                    <div class="page-number">Ma page de base HTML</div>
+                </a>
+                
+                <a href="page2.html" class="page-card">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Page 2</span>
+                    <div class="page-number">image</div>
+                </a>
+                
+                <a href="page3.html" class="page-card">
+                    <i class="fas fa-crosshairs"></i>
+                    <span>Page 3</span>
+                    <div class="page-number">Exercice de synthèse</div>
+                </a>
+                
+                <a href="page4.html" class="page-card">
+                    <i class="fas fa-skull"></i>
+                    <span>Page 4</span>
+                    <div class="page-number">Deuxième page avec la même image</div>
+                </a>
+                
+                <a href="page5.html" class="page-card">
+                    <i class="fas fa-crown"></i>
+                    <span>Page 5</span>
+                    <div class="page-number">Exercice sur les listes HTML</div>
+                </a>
+                
+                <a href="page6.html" class="page-card">
+                    <i class="fas fa-trophy"></i>
+                    <span>Page 6</span>
+                    <div class="page-number">Exercice sur les tableaux HTML</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="projet-footer">
+        <div class="footer-content">
+            <p>Projet développé par <strong>Jonathan KIKONGI DIMWINSA</strong></p>
+            <p>Mini Jeu JavaScript - Formation Développement Web</p>
+            <a href="#" class="back-to-top">
+                <i class="fas fa-chevron-up"></i> Retour en haut
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script pour le retour en haut
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

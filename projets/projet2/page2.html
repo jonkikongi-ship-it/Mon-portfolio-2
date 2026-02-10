@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercice 2 - Boucles</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .exercice {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0b7dda;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #2196F3;
+            white-space: pre-line;
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercice 2 - Boucles</h1>
+    
+    <div>
+        <h2>1. Nombres 1 à 10</h2>
+        <button onclick="afficherNombres()">Afficher 1 à 10</button>
+        <p id="result1"></p>
+    </div>
+    
+    <div>
+        <h2>2. Somme des entiers de 1 à 100</h2>
+        <button onclick="calculerSomme()">Calculer somme</button>
+        <p id="result2"></p>
+    </div>
+    
+    <div>
+        <h2>3. Deviner un nombre secret (1-100)</h2>
+        <button onclick="demarrerJeu()">Jouer</button>
+        <p id="result3">Cliquez sur "Jouer" pour commencer</p>
+    </div>
+    
+    <div>
+        <h2>4. Suite de Fibonacci</h2>
+        <button onclick="demanderFibonacci()">Fibonacci</button>
+        <p id="result4"></p>
+    </div>
+
+    <script>
+        // 1. Nombres 1 à 10
+        function afficherNombres() {
+            let resultat = "";
+            for (let i = 1; i <= 10; i++) {
+                resultat += i + " ";
+            }
+            document.getElementById("result1").innerHTML = resultat;
+        }
+
+        // 2. Somme 1 à 100 - C'EST NORMAL qu'il calcule directement !
+        // L'énoncé dit juste de "calculer la somme des entiers de 1 à 100"
+        function calculerSomme() {
+            let somme = 0;
+            let i = 1;
+            while (i <= 100) {
+                somme += i;
+                i++;
+            }
+            document.getElementById("result2").innerHTML = 
+                "La somme des nombres de 1 à 100 est : <strong>" + somme + "</strong>";
+        }
+
+        // 3. Deviner nombre - VERSION AMÉLIORÉE
+        function demarrerJeu() {
+            let secret = Math.floor(Math.random() * 100) + 1;
+            let tentative = 0;
+            let message = "Jeu démarré ! Nombre secret généré.<br>Devinez un nombre entre 1 et 100 :";
+            
+            // Afficher le message initial
+            document.getElementById("result3").innerHTML = message;
+            
+            // Créer un champ pour deviner
+            let inputHTML = '<input type="number" id="devineInput" min="1" max="100" placeholder="1-100">';
+            inputHTML += '<button onclick="verifierDevination(' + secret + ')">Deviner</button>';
+            inputHTML += '<button onclick="arreterJeu()">Arrêter</button>';
+            
+            document.getElementById("result3").innerHTML += "<br><br>" + inputHTML;
+        }
+        
+        // Fonction pour vérifier la devination
+        function verifierDevination(secret) {
+            let devine = parseInt(document.getElementById("devineInput").value);
+            let resultElement = document.getElementById("result3");
+            
+            if (isNaN(devine) || devine < 1 || devine > 100) {
+                resultElement.innerHTML += "<br>Nombre invalide ! Entrez 1-100";
+                return;
+            }
+            
+            if (devine < secret) {
+                resultElement.innerHTML += "<br>" + devine + " : Trop petit !";
+            } else if (devine > secret) {
+                resultElement.innerHTML += "<br>" + devine + " : Trop grand !";
+            } else {
+                resultElement.innerHTML = 
+                    "<strong>BRAVO !</strong> Vous avez trouvé le nombre secret : " + secret;
+                return;
+            }
+            
+            // Remettre le champ vide pour nouvelle tentative
+            document.getElementById("devineInput").value = "";
+        }
+        
+        // Fonction pour arrêter le jeu
+        function arreterJeu() {
+            document.getElementById("result3").innerHTML = 
+                "Jeu arrêté. Cliquez sur 'Jouer' pour recommencer.";
+        }
+
+        // 4. Suite Fibonacci - VERSION SIMPLIFIÉE
+        function demanderFibonacci() {
+            let n = parseInt(prompt("Combien de termes Fibonacci voulez-vous ? (Entre 1 et 20)"));
+            
+            if (isNaN(n) || n < 1 || n > 20) {
+                document.getElementById("result4").innerHTML = "Nombre invalide !";
+                return;
+            }
+            
+            let fibonacci = [];
+            if (n >= 1) fibonacci.push(0);
+            if (n >= 2) fibonacci.push(1);
+            
+            for (let i = 2; i < n; i++) {
+                fibonacci.push(fibonacci[i-1] + fibonacci[i-2]);
+            }
+            
+            document.getElementById("result4").innerHTML = 
+                "Les " + n + " premiers termes : " + fibonacci.join(", ");
+        }
+    </script>
+</body>
+</html>
+
+

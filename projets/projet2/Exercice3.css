@@ -1,0 +1,29 @@
+/* Appliquer une couleur de fond au body */
+body {
+    background-color: rgb(226, 207, 136);
+}
+
+/* Mettre en gras le texte du deuxième paragraphe avec ID */
+#bold-text {
+    font-weight: bold;
+}
+
+/* Mettre le texte du deuxième paragraphe en italique avec classe */
+.italic-text {
+    font-style: italic;
+}
+
+/* changer la couleur du texte des éléments de classe "item-highlight" */
+.item-highlight {
+    color: blue;
+}
+
+/* cibler tous les éléments de classe commencant par a */
+[class^="a"] {
+    background-color: yellow;
+}
+
+/* Cibler tous les éléments de classe finissant par date */
+[class$="date"] {
+    background-color: green;
+}

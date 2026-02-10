@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Avancé - Jonathan</title>
+    <link rel="stylesheet" href="../../projet-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        .portfolio-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .preview-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+        
+        .preview-section h2 {
+            color: white;
+        }
+        
+        .preview-section h2::after {
+            background-color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <header class="projet-header">
+        <nav class="projet-nav">
+            <a href="#" class="projet-logo">Objet<span>Js</span></a>
+            <a href="../../index.html" class="btn-retour">
+                <i class="fas fa-arrow-left"></i> Retour au portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="projet-main">
+        <section class="projet-hero">
+            <h1>Les objets Javascript.</h1>
+            <p>Un projet professionnel développé avec HTML, CSS et JavaScript orienté objet. Design moderne et fonctionnalités avancées.</p>
+            
+            <div class="tech-badges">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript ES6+</span>
+                <span class="badge">POO</span>
+                <span class="badge">Modules JS</span>
+                <span class="badge">Animations</span>
+                <span class="badge">Responsive</span>
+            </div>
+        </section>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Pages HTML</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1500+</span>
+                <span class="stat-label">Lignes de code</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">8+</span>
+                <span class="stat-label">Classes JS</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Responsive</span>
+            </div>
+        </div>
+
+        <section class="portfolio-highlights">
+            <div class="highlight-card">
+                <h3><i class="fas fa-code"></i> JavaScript Orienté Objet</h3>
+                <p>Architecture modulaire avec classes JavaScript pour une meilleure organisation et maintenabilité du code.</p>
+                <ul>
+                    <li>Classe Project pour la gestion des projets</li>
+                    <li>Classe Skill pour les compétences</li>
+                    <li>Classe ContactForm pour le formulaire</li>
+                    <li>Gestionnaire centralisé</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-card">
+                <h3><i class="fas fa-paint-brush"></i> Design Professionnel</h3>
+                <p>Interface utilisateur moderne avec animations subtiles et transitions fluides pour une expérience premium.</p>
+                <ul>
+                    <li>Design system cohérent</li>
+                    <li>Palette de couleurs professionnelle</li>
+                    <li>Typographie soignée</li>
+                    <li>Micro-interactions</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-card">
+                <h3><i class="fas fa-cogs"></i> Fonctionnalités Avancées</h3>
+                <p>Fonctionnalités interactives qui améliorent l'expérience utilisateur et démontrent des compétences techniques.</p>
+                <ul>
+                    <li>Filtrage des projets</li>
+                    <li>Animations de compétences</li>
+                    <li>Formulaire de contact avec validation</li>
+                    <li>Mode sombre/clair</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="preview-section">
+            <h2>Aperçu des fonctionnalités</h2>
+            <p>Ce portfolio avancé intègre des concepts de programmation moderne et des designs d'interface utilisateur professionnels.</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3>Classes JavaScript utilisées :</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">Project.js</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">Skill.js</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">ContactForm.js</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">PortfolioManager.js</span>
+                    <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;">AnimationController.js</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="pages-section">
+            <h2>Accès aux pages</h2>
+            <div class="pages-grid">
+                <a href="page1.html" class="page-card">
+                    <i class="fas fa-home"></i>
+                    <span>Page 1</span>
+                    <div class="page-number">Manipulation des chaînes</div>
+                </a>
+                
+                <a href="page2.html" class="page-card">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Page 2</span>
+                    <div class="page-number">Manipulation de nombres</div>
+                </a>
+                
+                <a href="page3.html" class="page-card">
+                    <i class="fas fa-code"></i>
+                    <span>Page 3</span>
+                    <div class="page-number">Manipulation de dates</div>
+                </a>
+                
+                <a href="page4.html" class="page-card">
+                    <i class="fas fa-envelope"></i>
+                    <span>Page 4</span>
+                    <div class="page-number">Horloge en temps réel</div>
+                </a>
+                
+                <a href="page5.html" class="page-card">
+                    <i class="fas fa-user"></i>
+                    <span>Page 5</span>
+                    <div class="page-number">Manipulation de tableaux</div>
+                </a>
+                
+                <a href="page6.html" class="page-card">
+                    <i class="fas fa-blog"></i>
+                    <span>Page 6</span>
+                    <div class="page-number">Calculateur de prêt hypotécaire</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="projet-footer">
+        <div class="footer-content">
+            <p>Portfolio Avancé - <strong>Jonathan KIKONGI DIMWINSA</strong></p>
+            <p>Développeur Web en Formation D-CLIC</p>
+            <div style="margin: 1rem 0;">
+                <a href="#" style="color: var(--secondary); margin: 0 0.5rem;"><i class="fab fa-github"></i></a>
+                <a href="#" style="color: var(--secondary); margin: 0 0.5rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="#" style="color: var(--secondary); margin: 0 0.5rem;"><i class="fab fa-twitter"></i></a>
+            </div>
+            <a href="#" class="back-to-top">
+                <i class="fas fa-chevron-up"></i> Retour en haut
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Animation pour les cartes de statistiques
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            const finalValue = parseInt(stat.textContent);
+            let currentValue = 0;
+            const increment = finalValue / 50;
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= finalValue) {
+                    stat.textContent = finalValue + (stat.textContent.includes('+') ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('+') ? '+' : '');
+                }
+            }, 30);
+        });
+        
+        // Retour en haut
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Animation au survol des cartes
+        document.querySelectorAll('.highlight-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
